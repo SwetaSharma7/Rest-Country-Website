@@ -17,10 +17,10 @@ body {
   font-family: "Nunito Sans", sans-serif;
   padding: 0;
   margin: 0;
-  height: 100vh;
-  width: 100vw;
+  width: 100%;
   box-sizing: border-box;
   font-size: 14px;
+  background-color: var(--Very-Light-Gray);
 }
 /* -----Header----- */
 
@@ -38,35 +38,59 @@ header {
   align-items: center;
 }
 header div {
-  padding: 0.6rem;
+  padding: 1.2rem ;
 }
 .content {
-  align-items: center;
   background-color: var(--Very-Light-Gray);
-}
-
-/* -----search-bar ----- */
-
-.content{
   width: 100%;
   margin-top: 1rem;
 }
+
+/* -----search-bar ----- */
 
 .search {
   display: flex;
   align-items: center;
   padding: 1rem 0;
-  width: 80%;
   padding-left: 3rem;
   gap: 2rem;
-  margin: 1rem 0;
+  margin: 1rem;
   color: var(--Dark-Gray);
   box-shadow: 0.5px 0.5px 5px 1px rgba(0, 0, 0, 0.2);
 }
 .search-input {
   border: none;
 }
-#dropdown{
+#dropdown {
   width: 50%;
   padding: 1rem;
 }
+
+/* -----Countries Part-----Card */
+.App{
+  width: 85%;
+}
+.card {
+  background-color: var(--White);
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 100%;
+  box-shadow: 0.5px 0.5px 10px 2px rgba(0, 0, 0, 0.3);
+  margin: 5rem 0;
+  
+}
+
+.img{
+  width: 100%;
+}
+
+img{
+  width: 100%;
+}
+.info{ 
+  padding-left: 3rem;
+  padding-bottom: 2rem;
+  font-weight: 500;
+}
+

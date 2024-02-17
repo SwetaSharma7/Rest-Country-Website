@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function Content() {
+function Content({ region, details}) {
+
   return (
     <div className="content">
       <div className="search">
@@ -10,11 +11,15 @@ function Content() {
         <input type="text" placeholder="search for a country" className="search-input"></input>
       </div>
       <div>
-        <select id="dropdown" >
-          <option value="" selected >Filter by Region</option>
-          <option value="option1">Option 1</option>
-          <option value="option2">Option 2</option>
-          <option value="option3">Option 3</option>
+        <select id="dropdown">
+          <option value={null} select="true">
+            filter By Region
+          </option>
+          {region.map((regin, index) => (
+            <option key={index} value={regin} select="true">
+              {regin}
+            </option>
+          ))}
         </select>
       </div>
     </div>
