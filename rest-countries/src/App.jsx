@@ -8,13 +8,11 @@ function App() {
   const [region, setRegion] = useState([]);
   const [details, setDetails] = useState([]);
 
-
   return (
     <>
       <Header />
-      <Content region={region} data={details}/>
-
-      <Card setRegion={setRegion} setDetails={setDetails}/>
+      <Content region={region} data={details} />
+      <Card setRegion={setRegion} setDetails={setDetails} />
     </>
   );
 }

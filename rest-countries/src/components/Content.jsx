@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function Content({ region, details}) {
-
+function Content({ region, details }) {
   return (
     <div className="content">
       <div className="search">
@@ -13,7 +12,7 @@ function Content({ region, details}) {
       <div>
         <select id="dropdown">
           <option value={null} select="true">
-            filter By Region
+            Filter By Region
           </option>
           {region.map((regin, index) => (
             <option key={index} value={regin} select="true">
