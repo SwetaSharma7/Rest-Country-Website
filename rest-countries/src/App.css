@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap");
+:root {
+  --Dark-Blue: hsl(209, 23%, 22%);
+  --Very-Dark-Blue: hsl(207, 26%, 17%);
+  --Light-Mode-Text: hsl(200, 15%, 8%);
+  --Dark-Gray: hsl(0, 0%, 52%);
+  --Very-Light-Gray: hsl(0, 0%, 98%);
+  --White: hsl(0, 0%, 100%);
+}
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+body {
+  font-family: "Nunito Sans", sans-serif;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+/* -----Header----- */
+
+header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  box-shadow: 0.5px 0.5px 10px 2px rgba(0, 0, 0, 0.3);
+}
+.toogle {
+  display: flex;
+  align-items: center;
+}
+header div {
+  padding: 0.6rem;
+}
+.content {
+  align-items: center;
+  background-color: var(--Very-Light-Gray);
+}
+
+/* -----search-bar ----- */
+
+.content{
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+  width: 80%;
+  padding-left: 3rem;
+  gap: 2rem;
+  margin: 1rem 0;
+  color: var(--Dark-Gray);
+  box-shadow: 0.5px 0.5px 5px 1px rgba(0, 0, 0, 0.2);
+}
+.search-input {
+  border: none;
+}
+#dropdown{
+  width: 50%;
+  padding: 1rem;
+}
