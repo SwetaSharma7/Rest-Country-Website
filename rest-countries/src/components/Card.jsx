@@ -1,9 +1,13 @@
 import React from "react";
 
-function Card({ countriesData }) {
+function Card({ countriesData, searchTerm, selectedRegion }) {
+  const filteredCountries = countriesData.filter((country) =>
+    country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
+  ).filter(country => selectedRegion ? country.region === selectedRegion : true);
+
   return (
     <div className="App">
-      {countriesData.map((country, index) => (
+      {filteredCountries.map((country, index) => (
         <div className="card" key={index}>
           <div className="img">
             <img src={country.flags.png} alt={country.name.common} />

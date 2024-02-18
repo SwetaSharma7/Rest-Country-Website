@@ -7,6 +7,8 @@ import Card from "./components/Card";
 function App() {
   const [region, setRegion] = useState([]);
   const [countriesData, setCountriesData] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedRegion, setSelectedRegion] = useState(null);
 
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
@@ -28,11 +30,27 @@ function App() {
       });
   }, []);
 
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+  };
+
+  const handleRegionChange = (selectedRegion) => {
+    setSelectedRegion(selectedRegion);
+  };
+
   return (
     <>
       <Header />
-      <Content region={region} />
-      <Card countriesData={countriesData} />
+      <Content
+        region={region}
+        onSearch={handleSearch}
+        onRegionChange={handleRegionChange}
+      />
+      <Card
+        countriesData={countriesData}
+        searchTerm={searchTerm}
+        selectedRegion={selectedRegion}
+      />
     </>
   );
 }
