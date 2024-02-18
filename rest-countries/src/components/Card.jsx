@@ -1,32 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-function Card({ setRegion, setDetails }) {
-  const [countriesData, setCountriesData] = useState([]);
-
-  useEffect(() => {
-    fetch("https://restcountries.com/v3.1/all")
-      .then((response) => response.json())
-      .then((data) => {
-        setCountriesData(data);
-        const arr = Object.keys(
-          // extracting region name from data to use it into drop down
-
-          data.reduce((acc, cv) => {
-            if (!acc[cv.region]) {
-              acc[cv.region] = 1;
-            }
-            return acc;
-          }, {})
-        );
-        setRegion(arr);
-        console.log(data);
-        setDetails(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
-
+function Card({ countriesData }) {
   return (
     <div className="App">
       {countriesData.map((country, index) => (
