@@ -9,6 +9,8 @@ function App() {
   const [countriesData, setCountriesData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedRegion, setSelectedRegion] = useState(null);
+  const [selectedSubregion, setSelectedSubregion] = useState(null); 
+  const [sortOption, setSortOption] = useState(null);
 
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
@@ -34,22 +36,37 @@ function App() {
     setSearchTerm(term);
   };
 
-  const handleRegionChange = (selectedRegion) => {
-    setSelectedRegion(selectedRegion);
+  const handleRegionChange = (Region) => {
+    setSelectedRegion(Region);
+    setSelectedSubregion(null); 
+  };
+
+  const handleSubregionChange = (subregion) => { 
+    setSelectedSubregion(subregion);
+  };
+
+  const handleSortChange = (option) => {
+    setSortOption(option);
   };
 
   return (
     <>
       <Header />
       <Content
+        countriesData={countriesData}
         region={region}
-        onSearch={handleSearch}
-        onRegionChange={handleRegionChange}
+        handleSearch={handleSearch}
+        handleRegionChange={handleRegionChange}
+        handleSubregionChange={handleSubregionChange} 
+        handleSortChange={handleSortChange}
+        selectedRegion={selectedRegion} 
       />
       <Card
         countriesData={countriesData}
         searchTerm={searchTerm}
         selectedRegion={selectedRegion}
+        selectedSubregion={selectedSubregion} 
+        sortOption={sortOption}
       />
     </>
   );

@@ -33,7 +33,7 @@ body {
   font-weight: bold;
   box-shadow: 0.5px 0.5px 10px 2px rgba(0, 0, 0, 0.3);
 }
-.header p{
+.header p {
   padding: 1rem 2rem;
 }
 .toogle {
@@ -44,6 +44,9 @@ body {
 .content {
   background-color: var(--Very-Light-Gray);
   width: 100%;
+  margin: 1rem 0;
+}
+.content select{
   margin-top: 1rem;
 }
 
@@ -74,25 +77,38 @@ body {
 }
 
 /* -----Countries Part-----Card */
-.App{
-  width: 85%;
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
 }
 .card {
   background-color: var(--White);
   display: flex;
   flex-direction: column;
-  height: auto;
-  width: 100%;
   box-shadow: 0.5px 0.5px 10px 2px rgba(0, 0, 0, 0.3);
-  margin: 5rem 0;
-  
+  margin: 3em 0;
 }
-.img, img{
+.img,
+img {
   width: 100%;
 }
-.info{ 
+.info {
   padding-left: 3rem;
   padding-bottom: 2rem;
   font-weight: 500;
 }
+@media (min-width: 990px) {
+  .card{
+    max-width: 350px;
+    height: 450px;
+  }
+.App{
+  flex-wrap: wrap;
+  gap: 3rem;
+  padding-left: 7rem;
+  flex-direction: row;
+}
 
+}
