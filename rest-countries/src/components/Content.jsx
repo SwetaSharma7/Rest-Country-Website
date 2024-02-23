@@ -1,16 +1,11 @@
 import React from "react";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useDarkMode } from "./DarkMode";
 
-function Content({
-  countriesData,
-  region,
-  handleSearch,
-  handleRegionChange,
-  handleSubregionChange,
-  handleSortChange,
-  selectedRegion,
-}) {
+function Content({ countriesData, region, handleSearch, handleRegionChange, handleSubregionChange, handleSortChange, selectedRegion }) {
+  const { isDarkMode } = useDarkMode();
+
   const handleChange = (event) => {
     handleSearch(event.target.value);
   };
@@ -20,7 +15,7 @@ function Content({
     handleRegionChange(Region);
   };
 
-  const handleChangeSubregion = (event) => { 
+  const handleChangeSubregion = (event) => {
     const subregion = event.target.value;
     handleSubregionChange(subregion);
   };
@@ -40,18 +35,17 @@ function Content({
   }, []);
 
   return (
-    <div className="content">
-      <div className="search">
+    <div className={isDarkMode ? "content content-DM" : "content"}>
+      <div className={isDarkMode ? "search search-DM" : "search"}>
         <FontAwesomeIcon icon={faSearch} className="search-icon" />
-        <input
-          type="text"
-          placeholder="Search for a country"
-          className="search-input"
-          onChange={handleChange}
-        />
+        <input type="text" 
+        placeholder="Search for a country" 
+        className="search-input"
+        onChange={(e) =>handleChange(e)} />
       </div>
-      <div>
-        <select id="dropdown" onChange={handleChangeRegion}>
+
+      <div className={isDarkMode ? "dropDown dropdown-DM" : "dropDown"}>
+        <select className={isDarkMode ? "region region-Dm" : "region"} id="dropdown" onChange={handleChangeRegion}>
           <option value={null} defaultValue>
             Filter By Region
           </option>
@@ -63,7 +57,7 @@ function Content({
         </select>
 
         {/* Add select for subregions */}
-        <select id="dropdown" onChange={handleChangeSubregion}>
+        <select className={isDarkMode ? "dropdown-DM" : "dropDown"} id="dropdown" onChange={handleChangeSubregion}>
           <option value={null} defaultValue>
             Filter By Subregion
           </option>
@@ -74,7 +68,7 @@ function Content({
           ))}
         </select>
 
-        <select id="dropdown" onChange={handleChangeSort}>
+        <select className={isDarkMode ? "dropdown-DM" : "dropDown"} id="dropdown" onChange={handleChangeSort}>
           <option value={null} defaultValue>
             Sort
           </option>

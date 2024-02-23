@@ -3,14 +3,18 @@ import "./App.css";
 import Header from "./components/Header";
 import Content from "./components/Content";
 import Card from "./components/Card";
+import Detail from "./components/Details";
+import { DarkModeProvider } from "./components/DarkMode";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   const [region, setRegion] = useState([]);
   const [countriesData, setCountriesData] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
   const [selectedRegion, setSelectedRegion] = useState(null);
-  const [selectedSubregion, setSelectedSubregion] = useState(null); 
+  const [selectedSubregion, setSelectedSubregion] = useState(null);
   const [sortOption, setSortOption] = useState(null);
+  
 
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
@@ -38,10 +42,10 @@ function App() {
 
   const handleRegionChange = (Region) => {
     setSelectedRegion(Region);
-    setSelectedSubregion(null); 
+    setSelectedSubregion(null);
   };
 
-  const handleSubregionChange = (subregion) => { 
+  const handleSubregionChange = (subregion) => {
     setSelectedSubregion(subregion);
   };
 
@@ -49,27 +53,36 @@ function App() {
     setSortOption(option);
   };
 
+  const Body = () => {
+    return (
+      <>
+        <Content
+          countriesData={countriesData}
+          region={region}
+          handleSearch={handleSearch}
+          handleRegionChange={handleRegionChange}
+          handleSubregionChange={handleSubregionChange}
+          handleSortChange={handleSortChange}
+          selectedRegion={selectedRegion}
+        />
+        <Card countriesData={countriesData} searchTerm={searchTerm} selectedRegion={selectedRegion} selectedSubregion={selectedSubregion} sortOption={sortOption} />
+      </>
+    );
+  };
+
   return (
-    <>
+    <DarkModeProvider>
       <Header />
-      <Content
-        countriesData={countriesData}
-        region={region}
-        handleSearch={handleSearch}
-        handleRegionChange={handleRegionChange}
-        handleSubregionChange={handleSubregionChange} 
-        handleSortChange={handleSortChange}
-        selectedRegion={selectedRegion} 
-      />
-      <Card
-        countriesData={countriesData}
-        searchTerm={searchTerm}
-        selectedRegion={selectedRegion}
-        selectedSubregion={selectedSubregion} 
-        sortOption={sortOption}
-      />
-    </>
+
+      <Routes>
+        <Route path="/" element={<Body />} />
+        <Route path="/details/:id" element={<Detail />} />
+        <Route path="*" element={<h1 className="notFound">Invalid Request</h1>} />
+      </Routes>
+    </DarkModeProvider>
   );
 }
 
 export default App;
+
+// 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 --- Access Token

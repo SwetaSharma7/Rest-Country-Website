@@ -1,17 +1,17 @@
 import React from "react";
+import { useDarkMode } from "./DarkMode";
 
 function Header() {
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
   return (
-    <header className="header">
+    <header className={isDarkMode ? "header dark-mode":"header"}>
       <div>
         <p>Where in the World..?</p>
       </div>
-      <div className="toogle">
-        <>
-          <ion-icon name="moon-outline"></ion-icon>
-        </>
+      <div className="toogle" onClick={toggleDarkMode}>
+        <ion-icon name={isDarkMode ? "moon" : "moon-outline"}></ion-icon>
         <div>
-          <p>Dark Mode</p>
+          <p>{isDarkMode ? "Light Mode" : "Dark Mode"}</p>
         </div>
       </div>
     </header>
@@ -19,3 +19,4 @@ function Header() {
 }
 
 export default Header;
+

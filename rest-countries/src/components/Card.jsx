@@ -1,6 +1,9 @@
 import React from "react";
+import { useDarkMode } from "./DarkMode";
+import { Link } from "react-router-dom";
 
 function Card({ countriesData, searchTerm, selectedRegion, selectedSubregion, sortOption }) {
+  const { isDarkMode } = useDarkMode();
   const filteredCountries = countriesData
     .filter((country) =>
       country.name.common.toLowerCase().includes(searchTerm.toLowerCase())
@@ -21,14 +24,15 @@ function Card({ countriesData, searchTerm, selectedRegion, selectedSubregion, so
       } else if (sortOption === "ascArea") {
         return a.area - b.area;
       } else {
-        return countriesData; 
+        return 0; 
       }
     });
 
   return (
-    <div className="App">
+    <div className={isDarkMode ? "App app-DM": "App"}>
       {filteredCountries.map((country, index) => (
-        <div className="card" key={index}>
+        <Link to={`/details/${country.cca3}`} key={index} className="link">
+        <div className={isDarkMode ? "card card-DM" : "card"}>
           <div className="img">
             <img src={country.flags.svg} alt={country.name.common} />
           </div>
@@ -40,6 +44,7 @@ function Card({ countriesData, searchTerm, selectedRegion, selectedSubregion, so
             <p>Capital: {country.capital}</p>
           </div>
         </div>
+      </Link>
       ))}
     </div>
   );

@@ -46,7 +46,7 @@ body {
   width: 100%;
   margin: 1rem 0;
 }
-.content select{
+.content select {
   margin-top: 1rem;
 }
 
@@ -63,14 +63,18 @@ body {
   box-shadow: 0.5px 0.5px 5px 1px rgba(0, 0, 0, 0.2);
 }
 .search-input {
+  width: 80%;
   border: none;
   padding: 1rem 0;
   font-size: 1rem;
 }
+.search-input:focus {
+  outline: none;
+}
 #dropdown {
   width: 50%;
   padding: 1rem;
-  margin-left: 2rem;
+  margin: 1rem 2rem;
   border: none;
   background-color: var(--White);
   box-shadow: 0.5px 0.5px 5px 1px rgba(0, 0, 0, 0.2);
@@ -82,15 +86,17 @@ body {
   flex-direction: column;
   align-items: center;
   width: 90%;
+  margin: 0 1.7rem;
 }
 .card {
-  background-color: var(--White);
   display: flex;
+  background-color: var(--White);
+  width: 100%;
   flex-direction: column;
   box-shadow: 0.5px 0.5px 10px 2px rgba(0, 0, 0, 0.3);
-  margin: 3em 0;
+  margin: 3rem 0;
 }
-.img,
+
 img {
   width: 100%;
 }
@@ -99,16 +105,106 @@ img {
   padding-bottom: 2rem;
   font-weight: 500;
 }
+.link {
+  text-decoration: none;
+  color: #333;
+}
+
+/* 2nd page */
+
+.backBtn {
+  margin: 2rem 2rem;
+}
+
+.backBtn button {
+  text-align: center;
+  background-color: var(--white);
+  border: none;
+  padding: 0.5rem 2rem;
+  border-radius: 0.3rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.detail-container {
+  width: 90%;
+  margin: 2rem;
+  border-radius: 0.3rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.img-details {
+  margin: 2rem;
+  margin-top: 0;
+}
+.extra-details {
+  margin: 2rem 0;
+}
+.notFound {
+  display: flex;
+  justify-content: center;
+  font-size: 3rem;
+  padding: 6rem 0;
+}
+
+/* DarkMode */
+.header.dark-mode,
+.card-DM,
+.search-input.input-DM {
+  background-color: var(--Dark-Blue);
+  color: var(--White);
+}
+.dark-mode,
+.app-DM,
+.content.content-DM {
+  background-color: var(--Very-Dark-Blue);
+}
+.dropDown option {
+  background-color: var(--Dark-Blue);
+  color: var(--White);
+}
+
+.search.search-DM {
+  background-color: var(--Dark-Blue);
+}
+
 @media (min-width: 990px) {
-  .card{
+  .card {
+    align-items: center;
     max-width: 350px;
     height: 450px;
   }
-.App{
-  flex-wrap: wrap;
-  gap: 3rem;
-  padding-left: 7rem;
-  flex-direction: row;
-}
+  .App {
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 3rem;
+    flex-direction: row;
+  }
+  .info {
+    margin-left: -7rem;
+  }
+  img {
+    aspect-ratio: 15/10;
+  }
+  .dropDown {
+    display: flex;
+  }
+  #dropdown {
+    border-radius: 0.5rem;
+  }
 
+  .img-details {
+    display: flex;
+    gap: 9rem;
+  }
+
+  .img-details img {
+    width: 40%;
+    height: auto;
+  }
+  .more-about {
+    display: flex;
+    gap: 40px;
+  }
+  .extra-details {
+    margin: 0;
+  }
 }
