@@ -1,5 +1,7 @@
 ![Design preview for the REST Countries API with color theme switcher coding challenge](./design/desktop-preview.jpg)
 
+Live Link: https://rest-country-beta.vercel.app/
+
 **To do this challenge, you need a good understanding of JavaScript.**
 
 ## The challenge
